@@ -1,17 +1,15 @@
 import "./loadEnvironment.js";
 import express from "express";
 import createDebug from "debug";
-import things from "./data/data.js";
+import thingToLoveRouter from "./routes/router.js";
 
 const debug = createDebug("things:root");
 
 const app = express();
 const port = process.env.PORT ?? 3000;
 
+app.use("/things", thingToLoveRouter);
+
 app.listen(port, () => {
   debug(`Working in port ${port}`);
-});
-
-app.get("/things", (req, res) => {
-  res.status(200).json({ things });
 });
