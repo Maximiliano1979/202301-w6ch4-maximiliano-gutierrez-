@@ -1,6 +1,7 @@
 import "./loadEnvironment.js";
 import express from "express";
 import createDebug from "debug";
+import things from "./data/data.js";
 
 const debug = createDebug("things:root");
 
@@ -12,5 +13,5 @@ app.listen(port, () => {
 });
 
 app.get("/things", (req, res) => {
-  res.status(200).json({ react: 3 });
+  res.status(200).json({ things });
 });
